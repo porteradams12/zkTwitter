@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Black.ttf);
+}
+
+body {
+    font-family: Roboto;
+    padding: 5%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.post {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 4%;
+    margin: 5%;
+}
+
+.address {
+    background-color: #1cf027;
+    text-transform: uppercase;
+}
+
+div:nth-child(3) .address{
+    background-color: #2596be;
+}
+
+div:nth-child(4) .address{
+    background-color: #193f39;
+    color: white;
+}
+
+div:nth-child(5) .address{
+    background-color: #238650;
+}
