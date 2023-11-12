@@ -87,6 +87,11 @@ contract Twitter {
         sender.posts.push(Post({text: text_}));
     }
 
+    fn getPost(address address_, u32 postIndex) -> (string) {
+        User storage poster = users[address_];
+        return poster.posts[postIndex].text;
+    }
+
     fn getLatestPost(address address_) -> (string) {
         User storage poster = users[address_];
         u32 latestPostIndex = poster.posts.length - 1;
