@@ -64,6 +64,22 @@ contract Twitter {
         otherUser.followers.push(structAddress({addr: msgSender}));
     }
 
+    fn checkFirstFollowsSecond(address firstAddr, address secondAddr) -> (bool) {
+        User storage firstUser = users[firstAddr];
+        for (u32 i = 0; i < firstUser.following.length; i++) {
+            if (secondAddr == firstUser.following[i].addr) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /* fn checkFriendship(address addrOne, address addrTwo) -> (bool) {
+        bool forward = checkFirstFollowsSecond(addrOne, addrTwo);
+        bool backward = checkFirstFollowsSecond(addrTwo, addrOne);
+        return(forward && backward);
+    } */
+
     /*********/
     //POST DATA
     /*********/
@@ -85,7 +101,9 @@ contract Twitter {
         User storage sender = users[msgSender];
 
         for (u32 i = 0; i < sender.following.length; i++) {
-            print(getLatestPost(sender.following[i].addr));
+            address otherAddress = sender.following[i].addr;
+            print(users[otherAddress].name);
+            print(getLatestPost(otherAddress));
         }
     }
 }
