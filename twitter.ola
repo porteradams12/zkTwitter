@@ -71,11 +71,15 @@ contract Twitter {
         return false;
     }
 
-    /*fn checkFriendship(address addrOne, address addrTwo) -> (bool) {
+    fn checkFriendship(address addrOne, address addrTwo) -> (bool) {
         bool forward = checkFirstFollowsSecond(addrOne, addrTwo);
         bool backward = checkFirstFollowsSecond(addrTwo, addrOne);
-        return (forward && backward);
-    } */
+        //return (forward && backward);
+        if (forward == true) {
+            if (backward == true) {return true;} {return false;}
+        }
+        return false;
+    }
 
     /*********/
     //POST DATA
