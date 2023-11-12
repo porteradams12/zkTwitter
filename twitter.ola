@@ -31,7 +31,6 @@ contract Twitter {
     //USER FUNCTIONS
     /*********/
 
-    //Register a user to the platform
     fn registerUser(string name_) {
         address msgSender = caller_address();
         User storage newUser = users[msgSender];
@@ -42,12 +41,10 @@ contract Twitter {
         newUser.registered = true;
     }
 
-    //Get a user's name from their address
     fn getUserName(address address_) -> (string) {
         return(users[address_].name);
     }
 
-    //Change a user's name
     fn changeName(string name_) {
         address msgSender = caller_address();
         User storage sender = users[msgSender];
@@ -74,10 +71,10 @@ contract Twitter {
         return false;
     }
 
-    /* fn checkFriendship(address addrOne, address addrTwo) -> (bool) {
+    /*fn checkFriendship(address addrOne, address addrTwo) -> (bool) {
         bool forward = checkFirstFollowsSecond(addrOne, addrTwo);
         bool backward = checkFirstFollowsSecond(addrTwo, addrOne);
-        return(forward && backward);
+        return (forward && backward);
     } */
 
     /*********/
